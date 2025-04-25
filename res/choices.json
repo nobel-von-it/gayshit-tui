@@ -1,0 +1,4 @@
+{
+  "Menu": ["start", "options", "quit"],
+  "InGame": ["characters", "quests", "items", "map", "back"]
+}
