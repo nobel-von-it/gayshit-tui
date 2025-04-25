@@ -59,12 +59,8 @@ pub fn render_main_menu(choices: &[String], selected: usize, area: Rect, buf: &m
     let menu_block = Block::bordered().title("Menu");
 
     let window_layout = centered_rect(90, 90, area);
-    let subwindow_layout = centered_rect(95, 95, window_layout);
+    let subwindow_layout = centered_rect(40, 40, window_layout);
 
-    let game_layout = Layout::default()
-        .direction(Direction::Horizontal)
-        .constraints([Constraint::Percentage(30), Constraint::Percentage(70)])
-        .split(subwindow_layout);
     Paragraph::new("")
         .block(menu_block)
         .render(window_layout, buf);
@@ -72,7 +68,7 @@ pub fn render_main_menu(choices: &[String], selected: usize, area: Rect, buf: &m
     let choices_layout = Layout::default()
         .direction(Direction::Vertical)
         .constraints(create_constraints_len(choices.len(), 3))
-        .split(game_layout[0]);
+        .split(subwindow_layout);
     for (i, choice) in choices.iter().enumerate() {
         let text = &choice;
         create_choice(text, i == selected).render(choices_layout[i], buf);
