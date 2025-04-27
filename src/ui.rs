@@ -74,3 +74,5 @@ pub fn render_main_menu(choices: &[String], selected: usize, area: Rect, buf: &m
         create_choice(text, i == selected).render(choices_layout[i], buf);
     }
 }
+
+pub fn render_in_game_menu(choices: &[String], selected: usize, area: Rect, buf: &mut Buffer) {}
